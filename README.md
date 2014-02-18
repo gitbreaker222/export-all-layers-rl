@@ -11,19 +11,19 @@ INSTALLATION:
 	 /home/MY-USERNAME/.gimp-2.8/plug-ins
 	 /usr/lib/gimp/2.0/plug-ins
 	 
--First path, in the home-directory, is for this specific user only (I chose that, for it is easier to handle file-permissions on ubuntu).
--Second path is for global usage
+	-First path, in the home-directory, is for this specific user only (I chose that, for it is easier to handle file-permissions on ubuntu).
+	-Second path is for global usage
 
 NOTE:
-Before gimp can load python-plug-ins, the permission has to be set to "executable"
--For the KDE-desktop simply right-click the file --> permissions --> check "executable"
--For gnome-desktop and windows it should be similar.
--With terminal: chmod 755 /path/to/file/export-all-layers-rl.py
-	Info:
-	  7       5     5
-	 user   group  world
-	 r+w+x  r+x    r+x
-	 4+2+1  4+0+1  4+0+1  = 755
+-Before gimp can load python-plug-ins, the permission has to be set to "executable"
+	-For the KDE-desktop simply right-click the file --> permissions --> check "executable"
+	-For gnome-desktop and windows it should be similar.
+	-With terminal: chmod 755 /path/to/file/export-all-layers-rl.py
+		Info:
+		  7       5     5
+		 user   group  world
+		 r+w+x  r+x    r+x
+		 4+2+1  4+0+1  4+0+1  = 755
 	further information to chmod here: http://codex.wordpress.org/Changing_File_Permissions
 -New plug-ins do not load while gimp is running --> restart gimp
 
