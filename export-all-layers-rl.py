@@ -65,7 +65,7 @@ register(
          """-Filenames are based on each layers names \n
          -if there are file-extensions (.jpg, .jpeg, .bmp, .gif, .psd, .tif, .tiff), they will be replaced with .png
          -saves images with default preferences for PNG-Format""",
-         "Ruben La Biunda <ruben.labiunda@gmx.de",
+         "Breaker222 <lexon222@gmx.de",
          "GNU",
          "2014",
          "export all layers as .png",
