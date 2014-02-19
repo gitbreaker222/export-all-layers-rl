@@ -28,7 +28,7 @@ def python_export_all_layers(image, path):
     
     # 4.: loop through layers
     # we don't want the image to be called "image.jpg.png", so...
-    false_file_extensions = [".jpg", ".jpeg", ".bmp", ".gif", ".tif", ".tiff", ".psd"]
+    false_file_extensions = [".jpg", ".JPG", ".jpeg", ".bmp", ".BMP", ".gif", ".GIF", ".tif", ".TIF", ".tiff", ".TIFF", ".psd", ".PSD"]
     for layer in image.layers:
         layer_name = layer.name
         print "current layer: %s \n" %layer_name
