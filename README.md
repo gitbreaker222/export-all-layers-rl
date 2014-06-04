@@ -7,7 +7,7 @@ python plug-in for GIMP: Export all layers based on their names
 INSTALLATION:
 -To use the plug-in, move it to the gimp-plug-in folder.
 -To find out that folder, look into gimps properties (folders --> Plugins)
--Usually there are to paths by default:
+-Usually there are two paths by default:
 	 /home/MY-USERNAME/.gimp-2.8/plug-ins
 	 /usr/lib/gimp/2.0/plug-ins
 	 
@@ -35,4 +35,9 @@ USAGE:
 	the file extension for the target file will be replaced with ".png"
 	(For example: You load a bunch of .jpg-files into gimp and the file extension
 	is within the layer name - that would not result in naming the file "picture.jpg.png")
--select the new function --> plug-in window pops up --> choose directory
+-select the new function --> a plug-in window pops up --> choose directory
+
+
+SAY HELLO:
+-don't be afraid to ask a question, if something is not working
+-if you like it, you might just tell me. This will sure motivate me in my future work :)
