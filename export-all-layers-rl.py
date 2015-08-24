@@ -4,6 +4,8 @@
 from gimpfu import *
 import os
 
+filetypes = [".jpg",".png",".bmp"]
+
 #export parameter
 #JPEG parameter
 quality = 0.9
@@ -38,12 +40,15 @@ def unique_filename(file_name):
 
 # MAIN PART
 def python_export_all_layers(image, path, filetype):
-    print "python_save_all_layers START: \n"
+    print "============== python_save_all_layers START: ==============\n"
     #first choose the path to safe the images:
     #(path is input parameter "path" given from gui function PF_DIRNAME)
     print "save layers in \n %s \n" %path
     
-    # 2.: Choose File-Format preferences
+    #...and convert "filetype" from index int to its string representation
+    filetype = filetypes[filetype]
+    
+    # 2.: Choose File-Format preferences (currently preset on top of this skript)
     if filetype == ".jpg":
       # TODO
       pass
@@ -136,7 +141,7 @@ register(
          "*",
          [
             (PF_IMAGE, "image", "takes current image", None),
-            (PF_DIRNAME, "directory", "the deeesired directory where to save", os.getcwd()),
+            (PF_DIRNAME, "directory", "the desired directory where to save", os.getcwd()),
             (PF_OPTION,"filetype",   "filetype:", 0, [".jpg",".png",".bmp"]), # initially 0th is choice
          ],
          [],
