@@ -8,15 +8,15 @@ filetypes = [".jpg",".png",".bmp"]
 
 #export parameter
 #JPEG parameter
-quality = 0.9
-smoothing = 1.0
-optimize = 0
+quality = 0.92
+smoothing = 0.0
+optimize = 1
 progressive = 1
 comment = ""
-subsmp = 0
-baseline = 0
-restart = 0
-dct = 0
+subsmp = 1
+baseline = 1
+restart = 1
+dct = 1
 
 #PNG parameter
 interlace = 1
@@ -130,14 +130,15 @@ def python_export_all_layers(image, path, filetype):
 
 register(
         "python-fu-export-all-layers-rl",
-         "Export all layers based on their names as .png",
+         "Export all layers based on their names",
          """-Filenames are based on each layers names \n
-         -if there are file-extensions (.jpg, .jpeg, .bmp, .gif, .psd, .tif, .tiff), they will be replaced with .png
-         -saves images with default preferences for PNG-Format""",
-         "Breaker222 <lexon222@gmx.de",
+         -if there are file-extensions (.jpg, .jpeg, .png, .bmp, .gif, .psd, .tif, .tiff), they will be replaced with specified type
+         -available filetypes are: JPEG, PNG and BMP
+         -currently the quality preferences are preset in the plug-in""",
+         "Ruben La Biunda <ruben.labiunda@openmailbox.org>",
          "GNU",
-         "2014",
-         "export all layers as .png",
+         "2015",
+         "export all layers",
          "*",
          [
             (PF_IMAGE, "image", "takes current image", None),
