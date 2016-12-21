@@ -27,7 +27,8 @@ Info:
  7       5     5
 user   group  world
 r+w+x  r+x    r+x
-4+2+1  4+0+1  4+0+1  = 755```		
+4+2+1  4+0+1  4+0+1  = 755
+```		
  
 - further information to chmod here: http://codex.wordpress.org/Changing_File_Permissions
 
