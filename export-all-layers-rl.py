@@ -7,8 +7,7 @@ import os
 filetypes = [".jpg",".png",".bmp"]
 
 #export parameter
-#JPEG parameter
-quality = 0.92
+#JPEG preset parameter
 smoothing = 0.0
 optimize = 1
 progressive = 1
@@ -18,7 +17,7 @@ baseline = 1
 restart = 1
 dct = 1
 
-#PNG parameter
+#PNG preset parameter
 interlace = 1
 compression = 9
 bkgd = 1
@@ -39,7 +38,7 @@ def unique_filename(file_name):
     return file_name
 
 # MAIN PART
-def python_export_all_layers(image, path, filetype):
+def python_export_all_layers(image, path, filetype, quality):
     print "============== python_save_all_layers START: ==============\n"
     #first choose the path to safe the images:
     #(path is input parameter "path" given from gui function PF_DIRNAME)
@@ -50,13 +49,12 @@ def python_export_all_layers(image, path, filetype):
     
     # 2.: Choose File-Format preferences (currently preset on top of this skript)
     if filetype == ".jpg":
-      # TODO
+      quality = quality / 100.0
       pass
     elif filetype == ".png":
       # TODO
       pass
     elif filetype == ".bmp":
-      # TODO
       pass
     
     
@@ -89,43 +87,45 @@ def python_export_all_layers(image, path, filetype):
         
         # 7.: and FINALLY save that layer!
         if filetype == ".jpg":
-	  pdb.file_jpeg_save(image,	#image: IMAGE
-			  layer, 	#drawable: DRAWABLE
-			  file_path,	#filename: STRING
-			  file_path,	#raw-filename: STRING
-			  quality,	#quality: FLOAT
-			  smoothing,	#smoothing: FLOAT
-			  optimize,	#optimize: INT32
-			  progressive,	#progressive: INT32
-			  comment,	#comment: STRING
-			  subsmp,	#subsmp: INT32
-			  baseline,	#baseline: INT32
-			  restart,	#restart: INT32
-			  dct)		#dct: INT32
+	          pdb.file_jpeg_save(image,	#image: IMAGE
+			          layer, 	#drawable: DRAWABLE
+			          file_path,	#filename: STRING
+			          file_path,	#raw-filename: STRING
+			          quality,	#quality: FLOAT
+			          smoothing,	#smoothing: FLOAT
+			          optimize,	#optimize: INT32
+			          progressive,	#progressive: INT32
+			          comment,	#comment: STRING
+			          subsmp,	#subsmp: INT32
+			          baseline,	#baseline: INT32
+			          restart,	#restart: INT32
+			          dct)		#dct: INT32
 	  
-	elif filetype == ".png":
-	  pdb.file_png_save(image,	#image: IMAGE
-			  layer, 	#drawable: DRAWABLE
-			  file_path,	#filename: STRING
-			  file_path,	#raw-filename: STRING
-			  interlace,	#interlace: INT32
-			  compression,	#compression: INT32
-			  bkgd,		#bkgd: INT32
-			  gama,		#gama: INT32
-			  offs,		#offs: INT32
-			  phys,		#phys: INT32
-			  time)		#time: INT32
-	  
-	elif filetype == ".bmp":
-	  pdb.file_bmp_save(image,	#image: IMAGE
-			  layer, 	#drawable: DRAWABLE
-			  file_path,	#filename: STRING
-			  file_path)	#raw-filename: STRING
+        elif filetype == ".png":
+            gimp_file_save()
+            pdb.file_png_save(image,	#image: IMAGE
+                layer, 	#drawable: DRAWABLE
+                file_path,	#filename: STRING
+                file_path,	#raw-filename: STRING
+                interlace,	#interlace: INT32
+                compression,	#compression: INT32
+                bkgd,		#bkgd: INT32
+                gama,		#gama: INT32
+                offs,		#offs: INT32
+                phys,		#phys: INT32
+                time)		#time: INT32
+          
+        elif filetype == ".bmp":
+            pdb.file_bmp_save(image,	#image: IMAGE
+                layer, 	#drawable: DRAWABLE
+                file_path,	#filename: STRING
+                file_path)	#raw-filename: STRING
 	
     
         
     print "all layers saved \n ------END------ \n"
     return
+    
 
 
 register(
@@ -144,6 +144,7 @@ register(
             (PF_IMAGE, "image", "takes current image", None),
             (PF_DIRNAME, "directory", "the desired directory where to save", os.getcwd()),
             (PF_OPTION,"filetype",   "filetype:", 0, [".jpg",".png",".bmp"]), # initially 0th is choice
+            (PF_SLIDER, "quality", "JPG Quality", 92, (0,100,1))
          ],
          [],
          python_export_all_layers,
