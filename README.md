@@ -1,3 +1,5 @@
+*discontinued*
+
 # export-all-layers-rl
 ## python plug-in for GIMP: Export all layers based on their names
 - choose between JPG and PNG (compression predefined at ~90%).
@@ -22,7 +24,7 @@
 ```sh
 chmod 755 /path/to/file/export-all-layers-rl.py
 ```
->```
+```
 Info:
  7       5     5
 user   group  world
